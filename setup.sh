@@ -5,8 +5,8 @@ read -p "Select Drive: " drivevar
 echo "Using $drivevar.."
 
 # Disk Encryption Selection
-read -sp "Enter Disk Encryption Password: " cryptvar
-read -sp "Confirm Disk Encryption Password: " cryptvarconfirm
+read -srep "Enter Disk Encryption Password: " cryptvar
+read -srep "Confirm Disk Encryption Password: " cryptvarconfirm
 if [ "$cryptvar" == "$cryptvarconfirm" ]; then
     echo "Starting installation.."
     break
