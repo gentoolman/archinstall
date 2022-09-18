@@ -57,5 +57,5 @@ mount /dev/mapper/cryptdisk /mnt
 mount $sysdrive"1" /mnt/boot
 pacstrap /mnt base linux linux-firmware intel-ucode vim nano git
 genfstab -U /mnt >> /mnt/etc/fstab
-git clone https://github.com/archungus333/archinstall.git /mnt/root
-arch-chroot /mnt
+git clone https://github.com/archungus333/archinstall.git /mnt/root/archinstall
+arch-chroot /mnt/root
