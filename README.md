@@ -6,8 +6,8 @@
 - Preparing Drives & chroot
 
 ## Stage 2
-- Locale config
-- Timezone config
+- Set Hostname
+- Sysclock config
 - Pacman init packages
 - Mkinitcpio config
 - Grub EFI installation
