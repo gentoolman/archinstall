@@ -17,4 +17,7 @@ fi
 # Partitioning
 parted --script $sysdrive \
     mklabel gpt \
-    p \
+    mkpart ESP fat32 1MiB 512MiB \
+    mkpart primary linux-swap -8GiB 100% \
+    mkpart primary 0% 100%
+parted /dev/sda – set 1 esp on
