@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Set Hostname 
-read -p "Enter Hostname: " hostname
+read -p "[Enter Hostname]: " hostname
 echo $hostname > /etc/hostname
 
 # Sys Clock
