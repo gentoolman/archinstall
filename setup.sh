@@ -37,3 +37,13 @@ fi
   echo 19;
   echo w;
 ) | fdisk $sysdrive
+
+# Format EFI
+mkfs.fat -F 32 $sysdrive1
+
+# Format Swap
+mkswap $sysdrive2
+swapon $sysdrive2
+
+# Format Primary
+mkfs.ext4 $sysdrive3
