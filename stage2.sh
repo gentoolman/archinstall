@@ -4,6 +4,10 @@
 read -p "[Enter Hostname]: " hostname
 echo $hostname > /etc/hostname
 
+# Setup Root Password
+read -p "[Enter root passwd]: " pass
+passwd "$pass" --stdin
+
 # Sys Clock
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
