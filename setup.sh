@@ -2,7 +2,7 @@
 
 # Drive Selection
 read -p "Select Drive: " sysdrive
-read -p "Enter Hostname:" hostname
+read -p "Enter Hostname: " hostname
 
 # Disk Encryption Selection
 read -srep "Enter Disk Encryption Password: " pass
