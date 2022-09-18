@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# Input Selection
+# Drive Selection
 read -p "Select Drive: " drivevar
 echo "Using $drivevar.."
-echo "Input Disk Encryption Password: " 1>&2
-read -sp cryptvar
-echo "Confirm Disk Encryption Password: " 1>&2
-read -sp cryptvarconfirm
+
+# Disk Encryption Selection
+read -sp "Enter Disk Encryption Password: " cryptvar
+read -sp "Confirm Disk Encryption Password: " cryptvarconfirm
 if [ "$cryptvar" == "$cryptvarconfirm" ]; then
     echo "Starting installation.."
     break
