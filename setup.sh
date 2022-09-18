@@ -40,11 +40,11 @@ wipefs $sysdrive
 ) | fdisk $sysdrive
 
 # Format EFI
-mkfs.fat -F 32 $sysdrive1
+mkfs.fat -F 32 $sysdrive"1"
 
 # Format Swap
-mkswap $sysdrive2
-swapon $sysdrive2
+mkswap $sysdrive"2"
+swapon $sysdrive"2"
 
 # Format Primary
-mkfs.ext4 $sysdrive3
+mkfs.ext4 $sysdrive"3"
