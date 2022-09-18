@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Set Hostname 
-read -p "Enter Hostname: " sysdrive
+read -p "Enter Hostname: " hostname
 echo $hostname > /etc/hostname
 
 # Sys Clock
