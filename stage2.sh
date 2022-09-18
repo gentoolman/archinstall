@@ -34,8 +34,12 @@ pacman --noconfirm -S efibootmgr grub networkmanager wireless_tools wpa_supplica
 sed --in-place=.bak 's/^HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt filesystems keyboard fsck)/' /etc/mkinitcpio.conf
 mkinitcpio -p linux
 
+# EFI 
+mkdir /boot/EFI
+mount /dev/sda1 /boot/EFI
+
 # Grub Installation
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 blkid -s UUID -o value /dev/sda3 > uuid.tmp
 uuid=$(<uuid.tmp)
