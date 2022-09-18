@@ -25,7 +25,7 @@ wipefs $sysdrive
   echo n;
   echo ;
   echo ;
-  echo +16G; # SWAP (16GB)
+  echo +8G; # SWAP (16GB)
   echo n;
   echo ;
   echo ;
