@@ -20,15 +20,15 @@ fi
   echo n;
   echo ;
   echo ;
-  echo +512M;
+  echo +512M; # EFI (512MiB)
   echo n;
   echo ;
   echo ;
-  echo +16G;
+  echo +16G; # SWAP (16GB)
   echo n;
   echo ;
   echo ;
-  echo ;
+  echo ; # PRIMARY (Remaining Space)
   echo t;
   echo 1;
   echo 1;
