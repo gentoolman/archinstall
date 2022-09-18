@@ -3,8 +3,10 @@
 # Input Selection
 read -p "Select Drive: " drivevar
 echo "Using $drivevar.."
-read -sp "Input Disk Encryption Password: "$'\n' cryptvar
-read -sp "Confirm Disk Encryption Password: "$'\n' cryptvarconfirm
+echo "Input Disk Encryption Password: " 1>&2
+read -sp cryptvar
+echo "Confirm Disk Encryption Password: " 1>&2
+read -sp cryptvarconfirm
 if [ "$cryptvar" == "$cryptvarconfirm" ]; then
     echo "Starting installation.."
     break
