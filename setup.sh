@@ -2,7 +2,6 @@
 
 # Drive Selection
 read -p "Select Drive: " drivevar
-echo "Using $drivevar.."
 
 # Disk Encryption Selection
 read -srep "Enter Disk Encryption Password: " cryptvar
@@ -16,4 +15,6 @@ else
 fi
 
 # Partitioning
-echo "Starting Partitioning.."
+sudo parted drivevar
+mklabel gpt
+p
