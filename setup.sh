@@ -8,9 +8,9 @@ echo "Using $drivevar.."
 read -srep "Enter Disk Encryption Password: " cryptvar
 read -sp "Confirm Disk Encryption Password: " cryptvarconfirm
 if [ "$cryptvar" == "$cryptvarconfirm" ]; then
-    echo "Starting installation.."
+    echo "\nStarting installation.."
 else
-    echo "Password do not Match! Aborting installation.."
+    echo "\nPassword do not Match! Aborting installation.."
     exit
 fi
 
