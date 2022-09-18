@@ -5,8 +5,8 @@ read -p "[Enter Hostname]: " hostname
 echo $hostname > /etc/hostname
 
 # Setup Root Password
-read -sp "[Enter root passwd]: " pass
-passwd "$pass" --stdin
+echo "[Enter root passwd] "
+passwd
 
 # Sys Clock
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
