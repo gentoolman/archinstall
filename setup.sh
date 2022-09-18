@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 # Drive Selection
-read -p "Select Drive: " drivevar
+read -p "Select Drive: " sysdrive
 
 # Disk Encryption Selection
-read -srep "Enter Disk Encryption Password: " cryptvar
-read -sp "Confirm Disk Encryption Password: " cryptvarconfirm
+read -srep "Enter Disk Encryption Password: " crypt
+read -sp "Confirm Disk Encryption Password: " cryptconfirm
 echo "*"
-if [ "$cryptvar" == "$cryptvarconfirm" ]; then
+if [ "$crypt" == "$cryptconfirm" ]; then
     echo "Starting installation.."
 else
     echo "Password do not Match! Aborting installation.."
@@ -15,6 +15,6 @@ else
 fi
 
 # Partitioning
-sudo parted drivevar
-mklabel gpt
-p
+parted --script $sysdrive \
+    mklabel gpt \
+    p \
