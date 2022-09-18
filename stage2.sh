@@ -31,7 +31,8 @@ pacman -Syu
 pacman --noconfirm -S efibootmgr grub networkmanager wireless_tools wpa_supplicant mtools os-prober reflector base-devel linux-headers bluez bluez-utils cups xdg-utils xdg-user-dirs pulseaudio-bluetooth
 
 # Mkinitcpio Conf
-# sed --in-place=.bak 's/^HOOKS=(base systemd autodetect modconf block filesystems sd-vconsole fsck)/str2/' /etc/mkinitcpio.conf
+sed --in-place=.bak 's/^HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt filesystems keyboard fsck)/' /etc/mkinitcpio.conf
+mkinitcpio -p linux
 
 # Grub Installation
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
