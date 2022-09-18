@@ -8,6 +8,8 @@
 ## Stage 2
 - Set Hostname
 - Sysclock config
+- Vconsole config
+- Localhost config
 - Pacman init packages
 - Mkinitcpio config
 - Grub EFI installation
