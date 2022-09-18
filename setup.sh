@@ -61,7 +61,6 @@ genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 
 # System Installation
-
 # Sys Clock
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
