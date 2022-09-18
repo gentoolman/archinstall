@@ -38,5 +38,5 @@ mkinitcpio -p linux
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 uuid=$(blkid -s UUID -o value /dev/sda3)
-sed --in-place=.bak 's/^GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice=UUID='$uuid':cryptdisk root=/dev/mapper/cryptdisk"/' /etc/default/grub
+sed --in-place=.bak 's/^GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice=UUID=$uuid:cryptdisk root=/dev/mapper/cryptdisk"/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
