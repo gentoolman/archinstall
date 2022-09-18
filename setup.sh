@@ -56,7 +56,7 @@ mkfs.ext4 /dev/mapper/cryptdisk
 mkdir /mnt/boot
 mount /dev/mapper/cryptdisk /mnt
 mount $sysdrive"1" /mnt/boot
-pacstrap /mnt base linux linux-firmware intel-ucode vim nano
+pacstrap /mnt base linux linux-firmware intel-ucode vim nano git
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 
