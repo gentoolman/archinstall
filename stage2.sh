@@ -35,10 +35,11 @@ sed --in-place=.bak 's/^HOOKS=(base udev autodetect modconf block filesystems ke
 mkinitcpio -p linux
 
 # EFI 
-mount /dev/sda1 /boot
+mkdir /boot/efi
+mount /dev/sda1 /boot/efi
 
 # Grub Installation
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --recheck /dev/sda
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --recheck /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 blkid -s UUID -o value /dev/sda3 > uuid.tmp
 uuid=$(<uuid.tmp)
