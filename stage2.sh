@@ -5,7 +5,7 @@ read -p "[Enter Hostname]: " hostname
 echo $hostname > /etc/hostname
 
 # Setup Root Password
-read -p "[Enter root passwd]: " pass
+read -sp "[Enter root passwd]: " pass
 passwd "$pass" --stdin
 
 # Sys Clock
