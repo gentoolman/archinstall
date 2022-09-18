@@ -40,4 +40,5 @@ grub-mkconfig -o /boot/grub/grub.cfg
 blkid -s UUID -o value /dev/sda3 > uuid.tmp
 uuid="cat uuid.tmp"
 sed --in-place=.bak 's/^GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice=UUID='$uuid':cryptdisk root=/dev/mapper/cryptdisk"/' /etc/default/grub
+rm -f uuid.tmp
 grub-mkconfig -o /boot/grub/grub.cfg
