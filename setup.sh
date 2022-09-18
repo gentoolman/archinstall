@@ -4,10 +4,10 @@
 read -p "Select Drive: " sysdrive
 
 # Disk Encryption Selection
-read -srep "Enter Disk Encryption Password: " crypt
-read -sp "Confirm Disk Encryption Password: " cryptconfirm
+read -srep "Enter Disk Encryption Password: " pass
+read -sp "Confirm Disk Encryption Password: " passconfirm
 echo "*"
-if [ "$crypt" == "$cryptconfirm" ]; then
+if [ "$pass" == "$passconfirm" ]; then
     echo "Starting installation.."
 else
     echo "Password do not Match! Aborting installation.."
@@ -46,5 +46,7 @@ mkfs.fat -F 32 $sysdrive"1"
 mkswap $sysdrive"2"
 swapon $sysdrive"2"
 
-# Format Primary
-mkfs.ext4 $sysdrive"3"
+# Format & Encrypt Primary
+echo $pass | cryptsetup luksFormat -v -s 512 -h sha512 $sysdrive"3" -d -
+echo $pass | cryptsetup open $sysdrive"3" cryptdisk -d -
+mkfs.ext4 /dev/mapper/cryptdisk
