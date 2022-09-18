@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 # Drive Selection
-read -p "Select Drive: " sysdrive
+read -p "[Select Drive]: " sysdrive
 
 # Disk Encryption Selection
-read -srep "Enter Disk Encryption Password: " pass
-read -sp "Confirm Disk Encryption Password: " passconfirm
+read -srep "[Enter Disk Encryption Password]: " pass
+read -sp "[Confirm Disk Encryption Password]: " passconfirm
 echo "*"
 if [ "$pass" == "$passconfirm" ]; then
-    echo "Starting installation.."
+    echo "Starting Installation.."
 else
     echo "Password do not Match! Aborting installation.."
     exit
