@@ -28,7 +28,7 @@ echo -e "127.0.1.1\t$hostname.localdomain\t$hostname" >> /etc/hosts
 # Pacman
 pacman -Sy
 pacman -Syu
-pacman --noconfirm -S efibootmgr networkmanager wireless_tools wpa_supplicant mtools os_prober reflector base-devel linux-headers bluez bluez-utils cups xdg-utils xdg-user-dirs
+pacman --noconfirm -S efibootmgr grub networkmanager wireless_tools wpa_supplicant mtools os-prober reflector base-devel linux-headers bluez bluez-utils cups xdg-utils xdg-user-dirs
 
 # Grub Installation
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
