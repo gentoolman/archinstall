@@ -15,6 +15,7 @@ else
 fi
 
 # Partitioning
+wipefs $sysdrive
 (
   echo g;
   echo n;
