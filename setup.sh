@@ -2,6 +2,7 @@
 
 # Drive Selection
 read -p "Select Drive: " sysdrive
+read -p "Enter Hostname:" hostname
 
 # Disk Encryption Selection
 read -srep "Enter Disk Encryption Password: " pass
@@ -58,3 +59,15 @@ mount $sysdrive"1" /mnt/boot
 pacstrap /mnt base linux linux-firmware intel-ucode vim nano
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
+
+# System Installation
+
+# Sys Clock
+ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+hwclock --systohc
+# Locale
+sed --in-place=.bak 's/^#de_DE\.UTF-8/de_DE\.UTF-8/' /etc/locale.gen
+locale-gen
+echo LANG=de_DE.UTF-8 > /etc/locale.conf
+# Set Hostname 
+echo $hostname > /etc/hostname
