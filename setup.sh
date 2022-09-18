@@ -15,14 +15,25 @@ else
 fi
 
 # Partitioning
-#parted --script $sysdrive \
-#    mklabel gpt \
-#    mkpart ESP fat32 1MiB 512MiB \
-#    mkpart primary linux-swap -8GiB 100% \
-#    mkpart primary 0% 100%
-    
-parted $sysdrive -- mklabel gpt
-parted $sysdrive -- mkpart ESP fat32 1MiB 512MiB
-parted $sysdrive -- mkpart primary linux-swap -8GiB 100%
-parted $sysdrive -- mkpart primary 0% 100%
-parted $sysdrive -- set 1 esp on
+(
+  echo g;
+  echo n;
+  echo ;
+  echo ;
+  echo +512M;
+  echo n;
+  echo ;
+  echo ;
+  echo +16G;
+  echo n;
+  echo ;
+  echo ;
+  echo ;
+  echo t;
+  echo 1;
+  echo 1;
+  echo t;
+  echo ;
+  echo 19;
+  echo w;
+) | fdisk $sysdrive
