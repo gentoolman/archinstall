@@ -5,7 +5,7 @@ read -p "[Enter Hostname]: " hostname
 echo $hostname > /etc/hostname
 
 # Setup Root Password
-echo "[Enter root passwd] "
+echo "[Enter Root Passwd]"
 passwd
 
 # Sys Clock
@@ -24,3 +24,13 @@ echo "KEYMAP=de-latin1-nodeadkeys" > /etc/vconsole.conf
 echo -e "127.0.0.1\tlocalhost" >> /etc/hosts
 echo -e "::1\t\tlocalhost" >> /etc/hosts
 echo -e "127.0.1.1\t$hostname.localdomain\t$hostname" >> /etc/hosts
+
+# Pacman
+pacman -Sy
+pacman -Syu
+pacman --noconfirm -S efibootmgr networkmanager wireless_tools wpa_supplicant mtools os_prober reflector base-devel linux-headers bluez bluez-utils cups xdg-utils xdg-user-dirs
+
+# Grub Installation
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+blkid -s UUID -o value /dev/sda3
