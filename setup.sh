@@ -51,10 +51,10 @@ echo $pass | cryptsetup luksFormat -v -s 512 -h sha512 $sysdrive"3" -d -
 echo $pass | cryptsetup open $sysdrive"3" cryptdisk -d -
 mkfs.ext4 /dev/mapper/cryptdisk
 
-# Mount Drives
+# Prepare Drive & chroot
 mkdir /mnt/boot
 mount /dev/mapper/cryptdisk /mnt
 mount $sysdrive"1" /mnt/boot
-
-# Pacstrap
 pacstrap /mnt base linux linux-firmware intel-ucode vim nano
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
