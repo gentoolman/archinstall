@@ -39,8 +39,10 @@ wipefs $sysdrivehttps://github.com/archungus333/archinstall/blob/main/stage1.sh
 mkfs.vfat -F32 -n EFI $sysdrive"1"
 
 # Setup Encrypted LUKS
-echo $pass | cryptsetup --use-random luksFormat $sysdrive"2" -d -
-echo $pass | cryptsetup luksOpen $sysdrive"2" luks -d -
+# echo $pass | cryptsetup --use-random luksFormat $sysdrive"2" -d -
+# echo $pass | cryptsetup luksOpen $sysdrive"2" luks -d -
+cryptsetup --use-random luksFormat $sysdrive"2"
+cryptsetup luksOpen $sysdrive"2" luks
 
 # Setup LVM
 pvcreate /dev/mapper/luks
