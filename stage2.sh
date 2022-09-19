@@ -51,4 +51,4 @@ echo "options cryptdevice=UUID=$uuid:vg0 root=/dev/mapper/vg0-root" >> /boot/loa
 
 # Systemd
 systemctl enable NetworkManager
-systemctl enable bluetooth
+# systemctl enable bluetooth
