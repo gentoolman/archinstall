@@ -29,7 +29,7 @@ echo -e "127.0.1.1\t$hostname.localdomain\t$hostname" >> /etc/hosts
 # Pacman
 pacman -Sy
 pacman -Syu
-pacman --noconfirm -S networkmanager wireless_tools mtools reflector linux-headers bluez bluez-utils cups xdg-utils xdg-user-dirs pulseaudio-bluetooth
+pacman --noconfirm -S networkmanager wireless_tools mtools reflector linux-headers xdg-utils xdg-user-dirs
 
 # Mkinitcpio Config
 sed --in-place=.bak 's/^MODULES=()/MODULES=(ext4)/' /etc/mkinitcpio.conf
@@ -51,4 +51,3 @@ echo "options cryptdevice=UUID=$uuid:vg0 root=/dev/mapper/vg0-root" >> /boot/loa
 
 # Systemd
 systemctl enable NetworkManager
-# systemctl enable bluetooth
