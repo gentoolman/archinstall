@@ -53,7 +53,9 @@ echo "linux /vmlinuz-linux" >> /boot/loader/entries/arch.conf
 echo "initrd /intel-ucode.img" >> /boot/loader/entries/arch.conf
 echo "initrd /initramfs-linux.img" >> /boot/loader/entries/arch.conf
 echo "options cryptdevice=UUID=$uuid:vg0 root=/dev/mapper/vg0-root" >> /boot/loader/entries/arch.conf
-# resume=/dev/mapper/vg0-swap rw intel_pstate=no_hwp
 
 # Systemd
 systemctl enable NetworkManager
+
+# Blacklist Dell Error
+echo "blacklist dell_laptop" > /etc/modprobe.d/blacklist.conf
