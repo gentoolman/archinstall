@@ -25,7 +25,7 @@ wipefs $sysdrive
   echo n;
   echo ;
   echo ;
-  echo +8G; # SWAP (16GB)
+  echo +8G; # SWAP (8GB)
   echo n;
   echo ;
   echo ;
@@ -40,7 +40,7 @@ wipefs $sysdrive
 ) | fdisk $sysdrive
 
 # Format EFI
-mkfs.fat -F 32 $sysdrive"1"
+mkfs.vfat -F32 -n EFI $sysdrive"1"
 
 # Format Swap
 mkswap $sysdrive"2"
@@ -48,15 +48,12 @@ swapon $sysdrive"2"
 
 # Format & Encrypt Primary
 echo $pass | cryptsetup luksFormat -v -s 512 -h sha512 $sysdrive"3" -d -
-echo $pass | cryptsetup open $sysdrive"3" cryptdisk -d -
+echo $pass | cryptsetup open $sysdrive"3" cryptdrive -d -
 mkfs.ext4 /dev/mapper/cryptdisk
 
 # Prepare Drive & chroot
-mkdir /mnt/boot
-mkdir /mnt/boot/efi
 mount /dev/mapper/cryptdisk /mnt
-mount $sysdrive"1" /mnt/boot/efi
+mount --mkdir $sysdrive"1" /mnt/boot
 pacstrap /mnt base linux linux-firmware intel-ucode vim nano git
 genfstab -U /mnt >> /mnt/etc/fstab
 git clone https://github.com/archungus333/archinstall.git /mnt/root/archinstall
-arch-chroot /mnt
