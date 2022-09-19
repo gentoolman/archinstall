@@ -8,6 +8,13 @@ echo $hostname > /etc/hostname
 echo "[Enter Root Passwd]"
 passwd
 
+# Setup Root Password
+read -p "[Enter Unsername]: " username
+useradd -mG wheel $username
+echo "[Enter Username Passwd]"
+sudo passwd $username
+sed --in-place=.bak 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+
 # Sys Clock
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
