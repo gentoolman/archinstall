@@ -4,11 +4,11 @@
 read -p "[Enter Hostname]: " hostname
 echo $hostname > /etc/hostname
 
-# Setup Root Password
+# Change Root Passwd
 echo "[Enter Root Passwd]"
 passwd
 
-# Setup Root Password
+# Setup User
 read -p "[Enter Unsername]: " username
 useradd -mG wheel $username
 echo "[Enter Username Passwd]"
