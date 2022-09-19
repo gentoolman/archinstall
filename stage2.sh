@@ -34,7 +34,7 @@ pacman --noconfirm -S networkmanager wireless_tools mtools reflector linux-heade
 # Mkinitcpio Conf ext4
 sed --in-place=.bak 's/^MODULES=()/MODULES=(ext4)/' /etc/mkinitcpio.conf
 sed --in-place=.bak 's/^HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt lvm2 resume filesystems keyboard fsck)/' /etc/mkinitcpio.conf
-# mkinitcpio -p linux
+mkinitcpio -p linux
 
 # Grub Installation
 # grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB --recheck
