@@ -60,7 +60,7 @@ mount /dev/mapper/vg0-root /mnt
 mount --mkdir $sysdrive"1" /mnt/efi 
 
 # Prepare Base System
-pacstrap /mnt base base-devel zsh neovim git sudo efibootmgr dialog wpa_supplicant tmux intel-ucode
-genfstab -pU /mnt | tee -a /mnt/etc/fstab
-git clone https://github.com/archungus333/archinstall.git /mnt/root/archinstall
-arch-chroot /mnt /bin/bash
+# pacstrap /mnt base base-devel zsh neovim git sudo efibootmgr dialog wpa_supplicant tmux intel-ucode
+# genfstab -pU /mnt | tee -a /mnt/etc/fstab
+# git clone https://github.com/archungus333/archinstall.git /mnt/root/archinstall
+# arch-chroot /mnt /bin/bash
