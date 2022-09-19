@@ -47,7 +47,7 @@ echo $pass | cryptsetup luksOpen $sysdrive"3" luks -d -
 # Setup LVM
 pvcreate /dev/mapper/luks
 vgcreate vg0 /dev/mapper/luks
-lvcreate --size 8G vg0 --name swap # 8GB SWAP
+lvcreate --size 4G vg0 --name swap # 4GB SWAP
 lvcreate -l +100%FREE vg0 --name root # Remaining -> Primary
 
 # Format LVM
