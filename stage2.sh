@@ -33,7 +33,7 @@ pacman --noconfirm -S networkmanager wireless_tools mtools reflector linux-heade
 
 # Mkinitcpio Config
 sed --in-place=.bak 's/^MODULES=()/MODULES=(ext4)/' /etc/mkinitcpio.conf
-sed --in-place=.bak 's/^HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt lvm2 filesystems keyboard fsck)/' /etc/mkinitcpio.conf
+sed --in-place=.bak 's/^HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt lvm2 resume filesystems keyboard fsck)/' /etc/mkinitcpio.conf
 mkinitcpio -p linux
 
 # Systembootd Setup
@@ -46,7 +46,7 @@ echo "title Arch Linux" >> /boot/loader/entries/arch.conf
 echo "linux /vmlinuz-linux" >> /boot/loader/entries/arch.conf
 echo "initrd /intel-ucode.img" >> /boot/loader/entries/arch.conf
 echo "initrd /initramfs-linux.img" >> /boot/loader/entries/arch.conf
-echo "options cryptdevice=UUID=$uuid:vg0 root=/dev/mapper/vg0-root" >> /boot/loader/entries/arch.conf
+echo "options cryptdevice=UUID=$uuid:vg0 root=/dev/mapper/vg0-root resume=/dev/mapper/vg0-swap rw intel_pstate=no_hwp" >> /boot/loader/entries/arch.conf
 # resume=/dev/mapper/vg0-swap rw intel_pstate=no_hwp
 
 # Systemd
