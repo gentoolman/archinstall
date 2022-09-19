@@ -8,7 +8,7 @@
 ## Stage 2
 - Set Hostname
 - Change Root Passwd
-- Create User & Passwd
+- Setup User
 - Sysclock config
 - Vconsole config
 - Localhost config
