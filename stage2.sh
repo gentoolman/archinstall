@@ -40,11 +40,13 @@ mkinitcpio -p linux
 bootctl --path=/efi install
 echo default arch >> /efi/loader/loader.conf
 echo timeout 5 >> /efi/loader/loader.conf
+blkid -s UUID -o value /dev/sda2 > uuid.tmp
+uuid=$(<uuid.tmp)
 echo "title Arch Linux" > /efi/loader/entries/arch.conf
 echo "linux /vmlinuz-linux" >> /efi/loader/entries/arch.conf
 echo "initrd /intel-ucode.img" >> /efi/loader/entries/arch.conf
 echo "initrd /initramfs-linux.img" >> /efi/loader/entries/arch.conf
-
+echo "options cryptdevice=UUID=$uuid:vg0 root=/dev/mapper/vg0-root resume=/dev/mapper/vg0-swap rw intel_pstate=no_hwp" >> /efi/loader/entries/arch.conf
 
 
 # Systemd
