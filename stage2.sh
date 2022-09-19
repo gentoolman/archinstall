@@ -31,10 +31,16 @@ pacman -Sy
 pacman -Syu
 pacman --noconfirm -S networkmanager wireless_tools mtools reflector linux-headers bluez bluez-utils cups xdg-utils xdg-user-dirs pulseaudio-bluetooth
 
-# Mkinitcpio Conf ext4
+# Mkinitcpio Config
 sed --in-place=.bak 's/^MODULES=()/MODULES=(ext4)/' /etc/mkinitcpio.conf
 sed --in-place=.bak 's/^HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt lvm2 resume filesystems keyboard fsck)/' /etc/mkinitcpio.conf
 mkinitcpio -p linux
+
+# Systembootd Setup
+bootctl --path=/efi install
+echo default arch >> /efi/loader/loader.conf
+echo timeout 5 >> /efi/loader/loader.conf
+
 
 # Grub Installation
 # grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB --recheck
