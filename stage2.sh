@@ -27,8 +27,7 @@ echo -e "::1\t\tlocalhost" >> /etc/hosts
 echo -e "127.0.1.1\t$hostname.localdomain\t$hostname" >> /etc/hosts
 
 # Pacman
-pacman -Sy
-pacman -Syu
+pacman -Syyu
 pacman --noconfirm -S networkmanager wireless_tools mtools reflector linux-headers xdg-utils xdg-user-dirs
 
 # Mkinitcpio Config
