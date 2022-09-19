@@ -15,7 +15,7 @@ else
 fi
 
 # Partitioning
-wipefs $sysdrive
+wipefs $sysdrivehttps://github.com/archungus333/archinstall/blob/main/stage1.sh
 (
   echo g;
   echo n;
@@ -58,7 +58,7 @@ mount /dev/mapper/vg0-root /mnt
 mount --mkdir $sysdrive"1" /mnt/efi 
 
 # Prepare Base System
-# pacstrap /mnt base base-devel zsh neovim git sudo efibootmgr dialog wpa_supplicant tmux intel-ucode
-# genfstab -pU /mnt | tee -a /mnt/etc/fstab
-# git clone https://github.com/archungus333/archinstall.git /mnt/root/archinstall
-# arch-chroot /mnt /bin/bash
+pacstrap /mnt base base-devel sudo efibootmgr dialog wpa_supplicant tmux intel-ucode zsh neovim git 
+genfstab -pU /mnt | tee -a /mnt/etc/fstab
+git clone https://github.com/archungus333/archinstall.git /mnt/root/archinstall
+arch-chroot /mnt /bin/bash
