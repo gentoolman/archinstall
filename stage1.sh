@@ -8,7 +8,7 @@ read -srep "[Enter Disk Encryption Password]: " pass
 read -sp "[Confirm Disk Encryption Password]: " passconfirm
 echo "*"
 if [ "$pass" == "$passconfirm" ]; then
-    echo "Starting Installation.."
+    echo "Starting Installation on $sysdrive"
 else
     echo "Password do not Match! Aborting installation.."
     exit
