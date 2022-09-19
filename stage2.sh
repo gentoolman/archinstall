@@ -37,15 +37,15 @@ sed --in-place=.bak 's/^HOOKS=(base udev autodetect modconf block filesystems ke
 mkinitcpio -p linux
 
 # Systembootd Setup
-bootctl --path=/efi install
-echo default arch >> /efi/loader/loader.conf
-echo timeout 5 >> /efi/loader/loader.conf
+bootctl --path=/boot install
+echo default arch >> /boot/loader/loader.conf
+echo timeout 5 >> /boot/loader/loader.conf
 blkid -s UUID -o value /dev/sda2 > uuid.tmp
 uuid=$(<uuid.tmp)
 echo "title Arch Linux" > /efi/loader/entries/arch.conf
-echo "linux /vmlinuz-linux" >> /efi/loader/entries/arch.conf
-echo "initrd /intel-ucode.img" >> /efi/loader/entries/arch.conf
-echo "initrd /initramfs-linux.img" >> /efi/loader/entries/arch.conf
+echo "linux /vmlinuz-linux" >> /boot/loader/entries/arch.conf
+echo "initrd /intel-ucode.img" >> /boot/loader/entries/arch.conf
+echo "initrd /initramfs-linux.img" >> /boot/loader/entries/arch.conf
 echo "options cryptdevice=UUID=$uuid:vg0 root=/dev/mapper/vg0-root resume=/dev/mapper/vg0-swap rw intel_pstate=no_hwp" >> /efi/loader/entries/arch.conf
 
 # Systemd
