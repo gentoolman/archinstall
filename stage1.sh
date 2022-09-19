@@ -55,7 +55,7 @@ swapon /dev/mapper/vg0-swap
 
 # Mount System
 mount /dev/mapper/vg0-root /mnt
-mount --mkdir $sysdrive"1" /mnt/efi 
+mount --mkdir $sysdrive"1" /mnt/boot 
 
 # Prepare Base System
 pacstrap /mnt base base-devel linux linux-firmware sudo efibootmgr lvm2 dialog wpa_supplicant tmux intel-ucode zsh neovim git 
