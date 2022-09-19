@@ -31,8 +31,9 @@ pacman -Sy
 pacman -Syu
 pacman --noconfirm -S networkmanager wireless_tools mtools reflector linux-headers bluez bluez-utils cups xdg-utils xdg-user-dirs pulseaudio-bluetooth
 
-# Mkinitcpio Conf
-# sed --in-place=.bak 's/^HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt filesystems keyboard fsck)/' /etc/mkinitcpio.conf
+# Mkinitcpio Conf ext4
+sed --in-place=.bak 's/^MODULES=()/MODULES=(ext4)/' /etc/mkinitcpio.conf
+sed --in-place=.bak 's/^HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt lvm2 resume filesystems keyboard fsck)/' /etc/mkinitcpio.conf
 # mkinitcpio -p linux
 
 # Grub Installation
