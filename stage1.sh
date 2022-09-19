@@ -47,13 +47,13 @@ mkswap $sysdrive"2"
 swapon $sysdrive"2"
 
 # Format & Encrypt Primary
-echo $pass | cryptsetup luksFormat -v -s 512 -h sha512 $sysdrive"3" -d -
-echo $pass | cryptsetup open $sysdrive"3" cryptdrive -d -
+echo $pass | cryptsetup luksFormat $sysdrive"3" -d -
+echo $pass | cryptsetup open $sysdrive"3" cryptdisk -d -
 mkfs.ext4 /dev/mapper/cryptdisk
 
 # Prepare Drive & chroot
 mount /dev/mapper/cryptdisk /mnt
 mount --mkdir $sysdrive"1" /mnt/boot
-pacstrap /mnt base linux linux-firmware nano git
+pacstrap /mnt base base-devel linux linux-firmware neovim nano git
 genfstab -U /mnt >> /mnt/etc/fstab
 git clone https://github.com/archungus333/archinstall.git /mnt/root/archinstall
