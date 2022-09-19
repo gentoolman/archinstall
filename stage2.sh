@@ -40,16 +40,12 @@ mkinitcpio -p linux
 bootctl --path=/efi install
 echo default arch >> /efi/loader/loader.conf
 echo timeout 5 >> /efi/loader/loader.conf
+echo "title Arch Linux" > /efi/loader/entries/arch.conf
+echo "linux /vmlinuz-linux" >> /efi/loader/entries/arch.conf
+echo "initrd /intel-ucode.img" >> /efi/loader/entries/arch.conf
+echo "initrd /initramfs-linux.img" >> /efi/loader/entries/arch.conf
 
 
-# Grub Installation
-# grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB --recheck
-# grub-mkconfig -o /boot/grub/grub.cfg
-# blkid -s UUID -o value /dev/sda3 > uuid.tmp
-# uuid=$(<uuid.tmp)
-# sed --in-place=.bak 's/^GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice=UUID='$uuid':cryptdisk root=\/dev\/mapper\/cryptdisk"/' /etc/default/grub
-# rm -f uuid.tmp
-# grub-mkconfig -o /boot/grub/grub.cfg
 
 # Systemd
 # systemctl enable NetworkManager
