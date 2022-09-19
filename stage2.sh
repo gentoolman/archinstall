@@ -48,7 +48,6 @@ echo "initrd /intel-ucode.img" >> /efi/loader/entries/arch.conf
 echo "initrd /initramfs-linux.img" >> /efi/loader/entries/arch.conf
 echo "options cryptdevice=UUID=$uuid:vg0 root=/dev/mapper/vg0-root resume=/dev/mapper/vg0-swap rw intel_pstate=no_hwp" >> /efi/loader/entries/arch.conf
 
-
 # Systemd
-# systemctl enable NetworkManager
-# systemctl enable bluetooth
+systemctl enable NetworkManager
+systemctl enable bluetooth
