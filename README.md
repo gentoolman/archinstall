@@ -2,7 +2,7 @@
 1337 arch setup script :3
 ## Stage 1
 - Partitioning & Formatting 
-- Full Disk Encryption Setup
+- Full Disk Encryption Setup via LVM
 - Preparing Drives & chroot
 
 ## Stage 2
@@ -12,4 +12,4 @@
 - Localhost config
 - Pacman init packages
 - Mkinitcpio config
-- Grub EFI installation
+- Systembootd EFI installation
