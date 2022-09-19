@@ -25,10 +25,6 @@ wipefs $sysdrive
   echo n;
   echo ;
   echo ;
-  echo +8G; # SWAP (8GB)
-  echo n;
-  echo ;
-  echo ;
   echo ; # PRIMARY (Remaining Space)
   echo t;
   echo 1;
@@ -42,18 +38,29 @@ wipefs $sysdrive
 # Format EFI
 mkfs.vfat -F32 -n EFI $sysdrive"1"
 
-# Format Swap
-mkswap $sysdrive"2"
-swapon $sysdrive"2"
+# Setup Encrypted LUKS
+cryptsetup --use-random luksFormat /dev/nvme0n1p2
+cryptsetup luksOpen /dev/nvme0n1p2 luks
+echo $pass | cryptsetup --use-random luksFormat $sysdrive"3" -d -
+echo $pass | cryptsetup luksOpen $sysdrive"3" luks -d -
 
-# Format & Encrypt Primary
-echo $pass | cryptsetup luksFormat $sysdrive"3" -d -
-echo $pass | cryptsetup open $sysdrive"3" cryptdisk -d -
-mkfs.ext4 /dev/mapper/cryptdisk
+# Setup LVM
+pvcreate /dev/mapper/luks
+vgcreate vg0 /dev/mapper/luks
+lvcreate --size 16G vg0 --name swap # 16GB SWAP
+lvcreate -l +100%FREE vg0 --name root # Remaining == Primary
 
-# Prepare Drive & chroot
-mount /dev/mapper/cryptdisk /mnt
-mount --mkdir $sysdrive"1" /mnt/efi
-pacstrap /mnt base base-devel linux linux-firmware neovim nano git
-genfstab -U /mnt >> /mnt/etc/fstab
+# Format LVM
+mkfs.ext4 -L root /dev/mapper/vg0-root
+mkswap /dev/mapper/vg0-swap
+swapon /dev/mapper/vg0-swap
+
+# Mount System
+mount /dev/mapper/vg0-root /mnt
+mount --mkdir $sysdrive"1" /mnt/efi 
+
+# Prepare Base System
+pacstrap /mnt base base-devel zsh neovim git sudo efibootmgr dialog wpa_supplicant tmux intel-ucode
+genfstab -pU /mnt | tee -a /mnt/etc/fstab
 git clone https://github.com/archungus333/archinstall.git /mnt/root/archinstall
+arch-chroot /mnt /bin/bash
