@@ -53,7 +53,7 @@ mkfs.ext4 /dev/mapper/cryptdisk
 
 # Prepare Drive & chroot
 mount /dev/mapper/cryptdisk /mnt
-mount --mkdir $sysdrive"1" /mnt/boot
+mount --mkdir $sysdrive"1" /mnt/boot/efi
 pacstrap /mnt base base-devel linux linux-firmware neovim nano git
 genfstab -U /mnt >> /mnt/etc/fstab
 git clone https://github.com/archungus333/archinstall.git /mnt/root/archinstall
