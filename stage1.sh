@@ -39,8 +39,6 @@ wipefs $sysdrive
 mkfs.vfat -F32 -n EFI $sysdrive"1"
 
 # Setup Encrypted LUKS
-cryptsetup --use-random luksFormat /dev/nvme0n1p2
-cryptsetup luksOpen /dev/nvme0n1p2 luks
 echo $pass | cryptsetup --use-random luksFormat $sysdrive"2" -d -
 echo $pass | cryptsetup luksOpen $sysdrive"2" luks -d -
 
