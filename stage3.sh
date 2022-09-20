@@ -2,7 +2,7 @@
 # packages
 
 sudo pacman -Syyu
-sudo pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty nano nvim git neofetch cmatrix htop python-pip python-pywal lightdm lightdm-gtk-greeter
+sudo pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty nano neofetch cmatrix htop python-pip python-pywal lightdm lightdm-gtk-greeter
 
 #YAY
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
