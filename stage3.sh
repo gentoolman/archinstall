@@ -2,7 +2,10 @@
 
 # Package Upgrade & Init
 sudo pacman -Syyu
-sudo pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty nano neofetch cmatrix htop python-pip python-pywal lightdm lightdm-gtk-greeter dmenu
+# Desktop Env
+sudo pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty lightdm lightdm-gtk-greeter dmenu
+# Misc
+sudo pacman -S --noconfirm --needed vim nvim nano htop neofetch cmatrix python python-pip python-pywal
 
 # YAY
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd
