@@ -10,8 +10,7 @@ cd
 rm -rf yay/
 
 #copying default configs
-mkdir $HOME/.config/
-mkdir $HOME/.config/bspwm/
+mkdir –p $HOME/.config/bspwm/
 mkdir $HOME/.config/sxhkd/
 mkdir $HOME/.config/polybar/
 
