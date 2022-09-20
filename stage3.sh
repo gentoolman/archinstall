@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
-# packages
 
+# Package Upgrade & Init
 sudo pacman -Syyu
 sudo pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty nano neofetch cmatrix htop python-pip python-pywal lightdm lightdm-gtk-greeter dmenu
 
-#YAY
-git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-cd 
-rm -rf yay/
+# YAY
+git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd ..
+rm -rf yay
 
-#copying default configs
+# .Config Struktur
 mkdir –p $HOME/.config/bspwm/
 mkdir $HOME/.config/sxhkd/
 mkdir $HOME/.config/polybar/
