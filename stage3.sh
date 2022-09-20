@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # Black Arch Repo Sync
-curl -O https://blackarch.org/strap.sh
+sudo curl -O https://blackarch.org/strap.sh
 echo 5ea40d49ecd14c2e024deecf90605426db97ea0c strap.sh | sha1sum -c
-chmod +x strap.sh && sudo ./strap.sh 
-rm -f strap.sh
+sudo chmod +x strap.sh && sudo ./strap.sh 
+sudo rm -f strap.sh
 
 # Package Sync & Init Installation
 sudo pacman -Syyu --noconfirm
@@ -15,12 +15,12 @@ sudo pacman -S --noconfirm --needed nano neovim vim htop neofetch cmatrix python
 
 # YAY
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd
-rm -rf yay
+sudo rm -rf yay
 
 # .Config Struktur
-mkdir –p ~/.config/bspwm/
-mkdir ~/.config/sxhkd/
-mkdir ~/.config/polybar/
+sudo mkdir –p ~/.config/bspwm/
+sudo mkdir ~/.config/sxhkd/
+sudo mkdir ~/.config/polybar/
 
 # Polybar Init Config
 cp /etc/polybar/config.ini ~/.config/polybar/config.ini
