@@ -11,7 +11,7 @@ sudo pacman -Syyu --noconfirm
 # Desktop Env
 sudo pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty lightdm lightdm-gtk-greeter dmenu xorg
 # Misc
-sudo pacman -S --noconfirm --needed nano neovim vim htop neofetch cmatrix python python-pip python-pywal
+sudo pacman -S --noconfirm --needed nano neovim vim htop tree neofetch cmatrix python python-pip python-pywal
 
 # YAY
 sudo git clone https://aur.archlinux.org/yay.git && chown $USERNAME:$USERNAME * && cd yay && makepkg -si && cd
