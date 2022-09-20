@@ -30,10 +30,6 @@ killall -q polybar
 polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
 echo "Polybar launched..."' > launch.sh && cd
 
-# Bswpm?
-install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
-install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
-
 # Lightdm Keyboard layout
 echo 'Section "InputClass"
     Identifier "keyboard"
@@ -41,6 +37,10 @@ echo 'Section "InputClass"
     Option "XkbLayout" "de"
     Option "XkbVariant" "nodeadkeys"
 EndSection' > /etc/X11/xorg.conf.d/20-keyboard.conf
+
+# Bswpm?
+install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
+install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
 
 # Systemd Symlinks
 systemctl enable lightdm.service
