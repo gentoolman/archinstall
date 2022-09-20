@@ -28,7 +28,6 @@ killall -q polybar
 polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
 
 echo "Polybar launched..."" > launch.sh
-chmod +x launch.sh
 cd
 
 install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
