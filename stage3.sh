@@ -2,10 +2,11 @@
 # packages
 
 sudo pacman -Syyu
-sudo pacman -S  bspwm sxhkd polybar picom nitrogen kitty nano nvim git neofetch cmatrix htop python-pip python-pywal lightdm lightdm-gtk-greeter
+sudo pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty nano nvim git neofetch cmatrix htop python-pip python-pywal lightdm lightdm-gtk-greeter
 
 #YAY
-pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+cd && rm -rf yay/
 
 #copying default configs
 mkdir $HOME/.config/bspwm
