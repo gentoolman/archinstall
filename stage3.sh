@@ -7,9 +7,9 @@ chmod +x strap.sh && sudo ./strap.sh
 rm -f strap.sh
 
 # Package Sync & Init Installation
-sudo pacman -Syyu
+sudo pacman -Syyu --noconfirm
 # Desktop Env
-sudo pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty lightdm lightdm-gtk-greeter dmenu
+sudo pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty lightdm lightdm-gtk-greeter dmenu xorg
 # Misc
 sudo pacman -S --noconfirm --needed nano neovim vim htop neofetch cmatrix python python-pip python-pywal
 
