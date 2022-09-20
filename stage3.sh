@@ -38,9 +38,9 @@ sudo echo 'Section "InputClass"
     Option "XkbVariant" "nodeadkeys"
 EndSection' > /etc/X11/xorg.conf.d/20-keyboard.conf
 
-# Bswpm?
-# sudo install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
-# sudo install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
+# Bswpm Init Config
+sudo install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
+sudo install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
 
 # Systemd Symlinks
 sudo systemctl enable lightdm.service
