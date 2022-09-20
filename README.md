@@ -1,11 +1,11 @@
 # Archinstall
 
-## Stage 1
+### stage1.sh
 - Partitioning & Formatting 
 - Full Disk Encryption Setup via LVM
 - Preparing Drives & chroot
 
-## Stage 2
+### stage2.sh
 - Set Hostname
 - Change Root Passwd
 - Setup User
@@ -15,3 +15,6 @@
 - Pacman init packages
 - Mkinitcpio config
 - Systembootd EFI installation
+
+### stage3.sh
+- Blackarch Strap
