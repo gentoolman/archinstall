@@ -1,4 +1,4 @@
-# Archinstall
+# Archinstall (DE)
 
 ### stage1.sh
 - Partitioning & Formatting 
