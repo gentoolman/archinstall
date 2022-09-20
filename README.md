@@ -1,5 +1,5 @@
 # Archinstall
-1337 arch setup script :3
+
 ## Stage 1
 - Partitioning & Formatting 
 - Full Disk Encryption Setup via LVM
