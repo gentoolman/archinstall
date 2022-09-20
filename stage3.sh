@@ -34,5 +34,13 @@ echo "Polybar launched..."' > launch.sh && cd
 install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
 install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
 
+# Lightdm Keyboard layout
+echo 'Section "InputClass"
+    Identifier "keyboard"
+    MatchIsKeyboard "yes"
+    Option "XkbLayout" "de"
+    Option "XkbVariant" "nodeadkeys"
+EndSection' > /etc/X11/xorg.conf.d/20-keyboard.conf
+
 # Systemd Symlinks
 systemctl enable lightdm.service
