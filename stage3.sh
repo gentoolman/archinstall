@@ -31,7 +31,7 @@ polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
 echo "Polybar launched..."' > launch.sh && cd
 
 # Lightdm Keyboard layout
-echo 'Section "InputClass"
+sudo echo 'Section "InputClass"
     Identifier "keyboard"
     MatchIsKeyboard "yes"
     Option "XkbLayout" "de"
