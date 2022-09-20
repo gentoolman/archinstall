@@ -14,7 +14,7 @@ sudo pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty lig
 sudo pacman -S --noconfirm --needed nano neovim vim htop tree neofetch cmatrix python python-pip python-pywal
 
 # YAY
-git clone https://aur.archlinux.org/yay.git && chown $USERNAME:$USERNAME * && cd yay && makepkg -si && cd
+git clone https://aur.archlinux.org/yay.git && chown $USERNAME:$USERNAME * && cd yay && makepkg -si --noconfirm && cd
 sudo rm -rf yay
 
 # .Config Struktur
