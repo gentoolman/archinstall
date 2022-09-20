@@ -9,6 +9,7 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 cd && rm -rf yay/
 
 #copying default configs
+mkdir $HOME/.config/
 mkdir $HOME/.config/bspwm/
 mkdir $HOME/.config/sxhkd/
 mkdir $HOME/.config/polybar/
