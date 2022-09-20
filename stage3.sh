@@ -6,7 +6,7 @@ echo 5ea40d49ecd14c2e024deecf90605426db97ea0c strap.sh | sha1sum -c
 chmod +x strap.sh && sudo ./strap.sh 
 rm -f strap.sh
 
-# Pacman Upgrade & Install init Setup
+# Package Sync & Init Installation
 sudo pacman -Syyu
 # Desktop Env
 sudo pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty lightdm lightdm-gtk-greeter dmenu
