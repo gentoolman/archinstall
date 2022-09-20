@@ -13,6 +13,7 @@ read -p "[Enter Unsername]: " username
 useradd -mG wheel $username
 echo "[Enter Username Passwd]"
 sudo passwd $username
+export EDITOR=nano
 sed --in-place=.bak 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 
 # Sys Clock
