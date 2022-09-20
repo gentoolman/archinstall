@@ -16,17 +16,10 @@ mkdir $HOME/.config/sxhkd/
 mkdir $HOME/.config/polybar/
 
 cp /etc/polybar/config.ini $HOME/.config/polybar/config.ini
-cd .config/polybar && touch launch.sh
+cd .config/polybar
 echo "#!/bin/bash
-
-# Terminate already running bar instances
 killall -q polybar
-# If all your bars have ipc enabled, you can also use
-# polybar-msg cmd quit
-
-# Launch Polybar, using default config location ~/.config/polybar/config.ini
 polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
-
 echo "Polybar launched..."" > launch.sh
 cd
 
