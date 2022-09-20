@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Black Arch Repo
+curl -O https://blackarch.org/strap.sh
+echo 5ea40d49ecd14c2e024deecf90605426db97ea0c strap.sh | sha1sum -c
+chmod +x strap.sh && sudo ./strap.sh 
+rm -f strap.sh
+
 # Package Upgrade & Init
 sudo pacman -Syyu
 # Desktop Env
