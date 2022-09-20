@@ -6,7 +6,8 @@ sudo pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty nan
 
 #YAY
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-cd && rm -rf yay/
+cd 
+rm -rf yay/
 
 #copying default configs
 mkdir $HOME/.config/
