@@ -17,4 +17,8 @@
 - Systembootd EFI installation
 
 ### stage3.sh
-- Blackarch Strap
+- Black Arch Repo Sync
+- Package Sync & Init Installation
+- YAY Setup / Polybar Init Config
+- Bswpm Init Config
+- Lightdm Setup
