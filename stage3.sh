@@ -18,9 +18,9 @@ git clone https://aur.archlinux.org/yay.git && chown $USERNAME:$USERNAME * && cd
 sudo rm -rf yay
 
 # .Config Struktur
-sudo mkdir –p ~/.config/bspwm/
-sudo mkdir ~/.config/sxhkd/
-sudo mkdir ~/.config/polybar/
+mkdir –p ~/.config/bspwm/
+mkdir ~/.config/sxhkd/
+mkdir ~/.config/polybar/
 
 # Polybar Init Config
 cp /etc/polybar/config.ini ~/.config/polybar/config.ini
@@ -39,8 +39,8 @@ sudo echo 'Section "InputClass"
 EndSection' > /etc/X11/xorg.conf.d/20-keyboard.conf
 
 # Bswpm Init Config
-sudo install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
-sudo install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
+install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
+install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
 
 # Systemd Symlinks
 sudo systemctl enable lightdm.service
