@@ -18,7 +18,7 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
 sudo rm -rf yay
 
 # .Config Struktur
-mkdir –p ~/.config/bspwm/
+mkdir -p ~/.config/bspwm/
 mkdir ~/.config/sxhkd/
 mkdir ~/.config/polybar/
 
