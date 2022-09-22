@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Username Input
-read -p "[Enter Username]: "
+read -p "[Enter Username]: " user
 
 # Require Root
 echo "[Enter Root Passwd]"
@@ -50,7 +50,7 @@ install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
 systemctl enable lightdm.service
 
 # User Privs
-chown -Rv $USER:$USER /home/$USER/*
+chown -Rv $user:$user /home/$user/*
 
 # YAY
 # git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd
