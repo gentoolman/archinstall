@@ -12,7 +12,7 @@ rm -f strap.sh
 # Package Sync & Init Installation
 pacman -Syyu --noconfirm
 # Desktop Env
-pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty lightdm lightdm-gtk-greeter dmenu xorg
+pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty lightdm lightdm-gtk-greeter dmenu xorg xorg-utils xorg-drivers xorg-apps
 # Misc Tools
 pacman -S --noconfirm --needed nano neovim vim htop tree neofetch cmatrix python python-pip python-pywal
 
