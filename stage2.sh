@@ -9,7 +9,7 @@ echo "[Enter Root Passwd]"
 passwd
 
 # Setup User
-read -p "[Enter Unsername]: " username
+read -p "[Enter Username]: " username
 useradd -mG wheel $username
 echo "[Enter Username Passwd]"
 sudo passwd $username
