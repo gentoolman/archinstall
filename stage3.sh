@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
+# Require Root
+sudo -s
+
 # Black Arch Repo Sync
-sudo curl -O https://blackarch.org/strap.sh
+curl -O https://blackarch.org/strap.sh
 echo 5ea40d49ecd14c2e024deecf90605426db97ea0c strap.sh | sha1sum -c
-sudo chmod +x strap.sh && sudo ./strap.sh 
-sudo rm -f strap.sh
+chmod +x strap.sh && sudo ./strap.sh 
+rm -f strap.sh
 
 # Package Sync & Init Installation
 sudo pacman -Syyu --noconfirm
