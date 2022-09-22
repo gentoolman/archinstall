@@ -3,11 +3,6 @@
 # Username Input
 read -p "[Enter Username]: " user
 
-# Require Root
-echo "[Enter Root Passwd]"
-sudo -s
-
-
 # Black Arch Repo Sync
 curl -O https://blackarch.org/strap.sh
 echo 5ea40d49ecd14c2e024deecf90605426db97ea0c strap.sh | sha1sum -c
