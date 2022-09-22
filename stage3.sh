@@ -45,7 +45,7 @@ install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
 systemctl enable lightdm.service
 
 # User Privs
-chown -Rv $user:$user /home/$user/*
+chown -Rv $user:$user /home/$user
 
 # YAY
 # git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd
