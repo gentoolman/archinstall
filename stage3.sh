@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
+# Username Input
+read -p "[Enter Username]: "
+
 # Require Root
+echo "[Enter Root Passwd]"
 sudo -s
+
 
 # Black Arch Repo Sync
 curl -O https://blackarch.org/strap.sh
@@ -43,6 +48,9 @@ install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
 
 # Systemd Symlinks
 systemctl enable lightdm.service
+
+# User Privs
+chown -Rv $USER:$USER /home/$USER/*
 
 # YAY
 # git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd
