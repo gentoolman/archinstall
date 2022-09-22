@@ -10,15 +10,11 @@ chmod +x strap.sh && sudo ./strap.sh
 rm -f strap.sh
 
 # Package Sync & Init Installation
-sudo pacman -Syyu --noconfirm
+pacman -Syyu --noconfirm
 # Desktop Env
-sudo pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty lightdm lightdm-gtk-greeter dmenu xorg
-# Misc
-sudo pacman -S --noconfirm --needed nano neovim vim htop tree neofetch cmatrix python python-pip python-pywal
-
-# YAY
-git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd
-sudo rm -rf yay
+pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty lightdm lightdm-gtk-greeter dmenu xorg
+# Misc Tools
+pacman -S --noconfirm --needed nano neovim vim htop tree neofetch cmatrix python python-pip python-pywal
 
 # .Config Struktur
 mkdir -p ~/.config/bspwm/
@@ -46,4 +42,8 @@ install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
 install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
 
 # Systemd Symlinks
-sudo systemctl enable lightdm.service
+systemctl enable lightdm.service
+
+# YAY
+# git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd
+# rm -rf yay
