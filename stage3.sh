@@ -18,8 +18,8 @@ pacman -S --noconfirm --needed nano neovim vim htop tree neofetch cmatrix python
 
 # .Config Struktur
 mkdir -p ~/.config/bspwm/
-mkdir ~/.config/sxhkd/
-mkdir ~/.config/polybar/
+mkdir -p ~/.config/sxhkd/
+mkdir -p ~/.config/polybar/
 
 # Polybar Init Config
 cp /etc/polybar/config.ini ~/.config/polybar/config.ini
