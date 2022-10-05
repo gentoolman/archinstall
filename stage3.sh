@@ -17,13 +17,13 @@ pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty lightdm 
 pacman -S --noconfirm --needed nano neovim vim htop tree neofetch cmatrix python python-pip python-pywal
 
 # .Config Struktur
-mkdir -p ~/.config/bspwm/
-mkdir -p ~/.config/sxhkd/
-mkdir -p ~/.config/polybar/
+mkdir -p /home/$user/.config/bspwm/
+mkdir -p /home/$user/.config/sxhkd/
+mkdir -p /home/$user/.config/polybar/
 
 # Polybar Init Config
-cp /etc/polybar/config.ini ~/.config/polybar/config.ini
-cd ~/.config/polybar
+cp /etc/polybar/config.ini /home/$user/.config/polybar/config.ini
+cd /home/$user/.config/polybar
 echo '#!/bin/bash
 killall -q polybar
 polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
@@ -48,5 +48,8 @@ systemctl enable lightdm.service
 chown -Rv $user:$user /home/$user
 
 # YAY
-# git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd
-# rm -rf yay
+git clone https://aur.archlinux.org/yay.git
+su $user
+cd /home/$user
+cd yay && makepkg -si --noconfirm && cd ..
+rm -rf yay
