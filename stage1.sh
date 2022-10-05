@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
+# Pacman
+pacman -Sy
+# pacman -Scc
+
 # Drive Selection
 read -p "[Select Drive]: " sysdrive
 
 # Partitioning
-wipefs $sysdrivehttps://github.com/archungus333/archinstall/blob/main/stage1.sh
+wipefs $sysdrive
 (
   echo g;
   echo n;
