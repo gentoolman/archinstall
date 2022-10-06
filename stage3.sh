@@ -14,7 +14,7 @@ pacman -Syyu --noconfirm
 # Desktop Env
 pacman -S --noconfirm --needed bspwm sxhkd polybar picom nitrogen kitty lightdm lightdm-gtk-greeter dmenu xorg xorg-utils xorg-drivers xorg-apps
 # Misc Tools
-pacman -S --noconfirm --needed nano neovim vim htop tree neofetch cmatrix python python-pip python-pywal
+pacman -S --noconfirm --needed nano neovim vim htop tree neofetch cmatrix python python-pip python-pywal noto-fonts-cjk noto-fonts-emoji noto-fonts
 
 # .Config Struktur
 mkdir -p /home/$user/.config/bspwm/
