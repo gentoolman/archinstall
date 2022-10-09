@@ -12,7 +12,7 @@ passwd
 read -p "[Enter Username]: " username
 useradd -mG wheel $username
 echo "[Enter Username Passwd]"
-sudo passwd $username
+passwd $username
 export EDITOR=nano
 sed --in-place=.bak 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 
@@ -60,3 +60,6 @@ systemctl enable NetworkManager
 
 # Blacklist Dell Error
 echo "blacklist dell_laptop" > /etc/modprobe.d/blacklist.conf
+
+# Get Dots
+git clone https://github.com/archungus333/dots.git /home/$username/
