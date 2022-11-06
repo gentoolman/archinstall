@@ -36,7 +36,7 @@ echo -e "127.0.1.1\t$hostname.localdomain\t$hostname" >> /etc/hosts
 
 # Pacman
 pacman -Syyu
-pacman --noconfirm -S networkmanager wireless_tools mtools reflector linux-headers xdg-utils xdg-user-dirs
+pacman --noconfirm -S networkmanager iwd wireless_tools mtools reflector linux-headers xdg-utils xdg-user-dirs 
 
 # Mkinitcpio Config
 sed --in-place=.bak 's/^MODULES=()/MODULES=(ext4)/' /etc/mkinitcpio.conf
@@ -56,7 +56,8 @@ echo "initrd /initramfs-linux.img" >> /boot/loader/entries/arch.conf
 echo "options cryptdevice=UUID=$uuid:vg0 root=/dev/mapper/vg0-root" >> /boot/loader/entries/arch.conf
 
 # Systemd
-systemctl enable NetworkManager
+systemctl disable NetworkManager
+systemctl enable iwd
 
 # Blacklist Dell Error
 echo "blacklist dell_laptop" > /etc/modprobe.d/blacklist.conf
