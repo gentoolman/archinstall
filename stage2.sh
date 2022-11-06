@@ -63,4 +63,4 @@ systemctl enable iwd
 echo "blacklist dell_laptop" > /etc/modprobe.d/blacklist.conf
 
 # Get Dots
-git clone https://github.com/archungus333/dots.git /home/$username
+# git clone https://github.com/archungus333/dots.git /home/$username
