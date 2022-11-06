@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-# See Drives
-lsblk
-
 # Pacman
 pacman -Sy
 # pacman -Scc
+
+# See Drives
+lsblk
 
 # Drive Selection
 read -p "[Select Drive]: " sysdrive
