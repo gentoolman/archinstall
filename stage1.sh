@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Pacman
-pacman -Sy
+pacman -Sy --noconfirm
 # pacman -Scc
 
 # See Drives
