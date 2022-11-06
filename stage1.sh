@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# See Drives
+lsblk
+
 # Pacman
 pacman -Sy
 # pacman -Scc
