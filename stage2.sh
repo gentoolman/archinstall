@@ -14,7 +14,7 @@ useradd -mG wheel $username
 echo "[Enter Username Passwd]"
 passwd $username
 export EDITOR=nano
-sed --in-place=.bak 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+sed --in-place=.bak 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
 # Sys Clock
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
