@@ -49,8 +49,8 @@ echo default arch >> /boot/loader/loader.conf
 echo timeout 5 >> /boot/loader/loader.conf
 # blkid -s UUID -o value /dev/sda2 > uuid.tmp
 # uuid=$(<uuid.tmp)
-blkid -s PARTUUID -o value /dev/sda2 > /tmp/partuuid.tmp
-partuuid=$(</tmp/partuuid.tmp)
+blkid -s PARTUUID -o value /dev/sda2 > partuuid.tmp
+partuuid=$(<partuuid.tmp)
 echo "title Arch Linux" >> /boot/loader/entries/arch.conf
 echo "linux /vmlinuz-linux" >> /boot/loader/entries/arch.conf
 echo "initrd /intel-ucode.img" >> /boot/loader/entries/arch.conf
