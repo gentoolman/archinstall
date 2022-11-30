@@ -62,8 +62,9 @@ echo "options cryptdevice=PARTUUID=$partuuid:vg0 root=/dev/mapper/vg0-root" >> /
 systemctl disable NetworkManager
 systemctl enable iwd
 
-# Blacklist Dell Error
+# Login Errors
 echo "blacklist dell_laptop" > /etc/modprobe.d/blacklist.conf
+rfkill block bluetooth
 
 # Get Dots
 # git clone https://github.com/archungus333/dots.git /home/$username
