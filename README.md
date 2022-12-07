@@ -15,3 +15,10 @@
 - Pacman init packages
 - Mkinitcpio config
 - Systembootd EFI installation
+
+### init.sh - use this after rebooting into freshly installed arch
+- Getting .config files
+- Tweak personal preferences
+- Installing BlackArch repo
+- Installing yay
+- Installing Fonts
