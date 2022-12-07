@@ -9,10 +9,10 @@ pacman-key --init
 lsblk
 
 # Drive Selection
-read -p "[Select Drive]: " sysdrive
+read -p "[Select Drive]: " initsysdrive
 
 # Partitioning
-wipefs $sysdrive
+wipefs $initsysdrive
 (
   echo g;
   echo n;
@@ -30,7 +30,14 @@ wipefs $sysdrive
   echo ;
   echo 19;
   echo w;
-) | fdisk $sysdrive
+) | fdisk $initsysdrive
+
+# Controll Partitions
+lsblk
+
+# select new drive name if needed | if your disk is labeled "sda" then type the previous path. 
+# BUT if you have a nvme ssd, the label is nvme0n1 but the partitions are labeled with nvme0n1px --> new drive path /dev/nvme0n1p
+read -p "[Select Drive]: " sysdrive
 
 # Format EFI
 mkfs.vfat -F32 -n EFI $sysdrive"1"
