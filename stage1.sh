@@ -57,4 +57,4 @@ mount --mkdir $sysdrive"1" /mnt/boot
 pacstrap /mnt base base-devel linux linux-firmware sudo efibootmgr lvm2 dialog wpa_supplicant tmux intel-ucode zsh nano neovim vim git 
 genfstab -pU /mnt | tee -a /mnt/etc/fstab
 git clone https://github.com/archungus333/archinstall.git /mnt/root/archinstall
-arch-chroot /mnt /bin/bash
+arch-chroot /mnt
