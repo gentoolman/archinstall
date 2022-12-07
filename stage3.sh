@@ -43,6 +43,7 @@ mv Bilder/ Pictures/
 mv Dokumente/ Documents/
 mv Schreibtisch/ Desktop/
 rm -rf Musik/ Öffentlich/ Videos/ Vorlagen/
+cp -rf Downloads/bspwmdots/wallpapers/* Pictures/
 
 # Blackarch 
 curl -O https://blackarch.org/strap.sh
