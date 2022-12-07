@@ -36,7 +36,7 @@ echo -e "127.0.1.1\t$hostname.localdomain\t$hostname" >> /etc/hosts
 
 # Pacman
 pacman -Syyu
-pacman --noconfirm -S networkmanager iwd wireless_tools mtools reflector linux-headers xdg-utils xdg-user-dirs dhclient dhcpd
+pacman --noconfirm -S networkmanager iwd wireless_tools mtools reflector linux-headers xdg-utils xdg-user-dirs intel-ucode
 
 # Mkinitcpio Config
 sed --in-place=.bak 's/^MODULES=()/MODULES=(ext4)/' /etc/mkinitcpio.conf
