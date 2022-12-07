@@ -40,7 +40,7 @@ pacman --noconfirm -S networkmanager iwd wireless_tools mtools reflector linux-h
 
 # Mkinitcpio Config
 sed --in-place=.bak 's/^MODULES=()/MODULES=(ext4)/' /etc/mkinitcpio.conf
-sed --in-place=.bak 's/^HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt lvm2 filesystems keyboard fsck)/' /etc/mkinitcpio.conf
+sed --in-place=.bak 's/^HOOKS=.*/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt lvm2 filesystems keyboard fsck)/' /etc/mkinitcpio.conf
 mkinitcpio -p linux
 
 # Systembootd Setup
