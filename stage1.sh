@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # Pacman
-pacman -Sy archlinux-keyring --noconfirm
+pacman -Sy archlinux-keyring --noconfirm > /dev/null
+pacman-key --init
 # pacman -Scc
 
 # See Drives
