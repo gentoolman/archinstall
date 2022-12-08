@@ -4,7 +4,7 @@
 sudo pacman -Syyu --noconfirm
 
 # Desktop Env
-sudo pacman -S --noconfirm --needed xorg xorg-server xorg-apps bspwm sxhkd polybar picom nitrogen kitty lightdm lightdm-gtk-greeter dmenu 
+sudo pacman -S --noconfirm --needed xorg xorg-server xorg-apps bspwm sxhkd polybar nitrogen kitty lightdm lightdm-gtk-greeter dmenu 
 
 # Misc Tools
 sudo pacman -S --noconfirm --needed nano btop neovim htop tree neofetch cmatrix python python-pip python-pywal pulseaudio-bluetooth sof-firmware thunar discord s-tui git
@@ -27,10 +27,11 @@ sudo systemctl enable lightdm.service
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 sudo usermod -a -G video $username
-sudo echo "ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"" >> /etc/udev/rules.d/backlight.rules
+echo "ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"" | sudo tee /etc/udev/rules.d/backlight2.rules
 
 # YAY
 sudo pacman -S --needed --noconfirm git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+yay -S picom-ibhagwan-git
 
 # Fonts
 pacman -S --noconfirm ttf-font-awesome
