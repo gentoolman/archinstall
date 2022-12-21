@@ -64,5 +64,5 @@ mount --mkdir $sysdrive"1" /mnt/boot
 # Prepare Base System
 pacstrap /mnt base base-devel linux linux-firmware sudo efibootmgr lvm2 dialog wpa_supplicant nano vim git dhclient
 genfstab -pU /mnt | tee -a /mnt/etc/fstab
-git clone https://github.com/archungus333/archinstall.git /mnt/root/archinstall
+git clone https://github.com/gentoolman/archinstall.git /mnt/root/archinstall
 arch-chroot /mnt
