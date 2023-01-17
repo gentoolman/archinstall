@@ -4,7 +4,7 @@
 sudo pacman -Syyu --noconfirm
 
 # Desktop Env
-sudo pacman -S --noconfirm --needed xorg xorg-server xorg-apps bspwm sxhkd polybar nitrogen kitty lightdm lightdm-gtk-greeter dmenu 
+sudo pacman -S --noconfirm --needed xorg xorg-server xorg-apps bspwm sxhkd polybar nitrogen kitty lightdm lightdm-gtk-greeter dmenu rofi
 
 # Misc Tools
 sudo pacman -S --noconfirm --needed nano btop neovim htop tree neofetch cmatrix python python-pip python-pywal pulseaudio-bluetooth sof-firmware thunar discord s-tui git
@@ -16,6 +16,8 @@ git clone https://github.com/gentoolman/bspwmdots
 cd
 cp -rf Downloads/bspwmdots/.config /home/$USER/
 cp -rf Downloads/bspwmdots/.bashrc /home/$USER/
+cp -rf Downloads/bspwmdots/.zshrc /home/$USER/
+cp -rf Downloads/bspwmdots/.Xresources /home/$USER/
 
 chmod +x .config/bspwm/bspwmrc
 chmod +x .config/bspwm/pywal.sh
