@@ -35,6 +35,11 @@ echo "ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath
 sudo pacman -S --needed --noconfirm git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 yay -S picom-ibhagwan-git
 
+# zsh syntax highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+# echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc 
+# no need for this line, because it is already written in the .zshrc file
+
 # Fonts
 pacman -S --noconfirm ttf-font-awesome
 yay -S nerd-fonts-complete --needed --noconfirm
